@@ -79,6 +79,35 @@
   --sidebar-ring: #9c7544;
 }
 
+:root[data-theme='light'] .hero-title,
+:root[data-theme='light'] .hero-subtitle,
+:root[data-theme='light'] .navbar-link,
+:root[data-theme='light'] .navbar-icon-control,
+:root[data-theme='light'] .footer-text,
+:root[data-theme='light'] .footer-link {
+  color: #e0b94b;
+}
+
+:root[data-theme='light'] .footer-shell {
+  background: #1f160f;
+}
+
+:root[data-theme='light'] .hero-copy {
+  text-shadow: 0 8px 30px rgba(31, 22, 15, 0.45);
+}
+
+:root[data-theme='light'] .hero-title {
+  color: #6b7280;
+}
+
+:root[data-theme='light'] .hero-subtitle {
+  color: #9ca3af;
+}
+
+:root[data-theme='light'] .navbar-icon-control {
+  color: #6b7280;
+}
+
 @layer base {
   * {
     @apply border-border;

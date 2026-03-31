@@ -84,12 +84,12 @@ export function Home() {
             duration: 1,
             delay: 0.3
           }}
-          className="relative z-10 text-center px-4">
+          className="hero-copy relative z-10 text-center px-4">
           
-          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl mb-6 tracking-tight">
+          <h1 className="hero-title font-serif text-5xl md:text-7xl lg:text-8xl mb-6 tracking-tight">
             Redefining Modern Elegance
           </h1>
-          <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+          <p className="hero-subtitle text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
             Where luxury meets streetwear. Discover the SLEEK collection.
           </p>
           <Link to="/collections">

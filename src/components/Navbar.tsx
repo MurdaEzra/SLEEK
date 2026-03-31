@@ -57,7 +57,7 @@ export function Navbar() {
               <Link
                 key={link.path}
                 to={link.path}
-                className="text-sm uppercase tracking-wider transition-colors duration-300 hover:text-gold"
+                className="navbar-link text-sm uppercase tracking-wider transition-colors duration-300 hover:text-gold"
               >
                 {link.name}
               </Link>
@@ -69,14 +69,14 @@ export function Navbar() {
               type="button"
               onClick={toggleTheme}
               aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-              className="hidden items-center gap-2 rounded-full border border-gold/20 bg-background/70 px-3 py-2 text-sm transition-colors duration-300 hover:border-gold hover:text-gold md:flex"
+              className="navbar-icon-control flex items-center gap-2 rounded-full border border-gold/20 bg-background/70 px-3 py-2 text-sm transition-colors duration-300 hover:border-gold hover:text-gold"
             >
               {theme === 'dark' ? <SunMedium className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-              <span>{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</span>
+              <span className="hidden sm:inline">{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</span>
             </button>
             <Link
               to={currentUser?.role === 'client' ? '/profile' : '/auth?role=client'}
-              className="relative p-2 transition-colors duration-300 hover:text-gold"
+              className="navbar-icon-control relative p-2 transition-colors duration-300 hover:text-gold"
               aria-label="Shopping bag"
             >
               <ShoppingBag className="h-5 w-5" />
@@ -88,7 +88,7 @@ export function Navbar() {
             </Link>
             <Link
               to={accountLink.path}
-              className="hidden items-center gap-2 rounded-full border border-gold/20 px-4 py-2 text-sm transition-colors duration-300 hover:border-gold hover:text-gold md:flex"
+              className="navbar-link hidden items-center gap-2 rounded-full border border-gold/20 px-4 py-2 text-sm transition-colors duration-300 hover:border-gold hover:text-gold md:flex"
             >
               <UserCircle2 className="h-4 w-4" />
               <span>{accountLink.label}</span>
@@ -97,7 +97,7 @@ export function Navbar() {
               <button
                 type="button"
                 onClick={logout}
-                className="hidden text-sm uppercase tracking-[0.3em] text-white/55 transition-colors hover:text-gold xl:block"
+                className="navbar-link hidden text-sm uppercase tracking-[0.3em] text-white/55 transition-colors hover:text-gold xl:block"
               >
                 Logout
               </button>
@@ -105,28 +105,18 @@ export function Navbar() {
 
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild className="lg:hidden">
-                <button className="p-2" aria-label="Menu">
+                <button className="navbar-icon-control p-2 transition-colors duration-300 hover:text-gold" aria-label="Menu">
                   <Menu className="h-6 w-6" />
                 </button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[320px] border-l border-gold/10 bg-black">
                 <div className="mt-12 flex flex-col space-y-6">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      toggleTheme();
-                      setIsOpen(false);
-                    }}
-                    className="text-left text-lg uppercase tracking-wider transition-colors duration-300 hover:text-gold"
-                  >
-                    {theme === 'dark' ? 'Switch to Beige' : 'Switch to Dark'}
-                  </button>
                   {navLinks.map((link) => (
                     <Link
                       key={link.path}
                       to={link.path}
                       onClick={() => setIsOpen(false)}
-                      className="text-lg uppercase tracking-wider transition-colors duration-300 hover:text-gold"
+                      className="navbar-link text-lg uppercase tracking-wider transition-colors duration-300 hover:text-gold"
                     >
                       {link.name}
                     </Link>
@@ -134,7 +124,7 @@ export function Navbar() {
                   <Link
                     to={accountLink.path}
                     onClick={() => setIsOpen(false)}
-                    className="text-lg uppercase tracking-wider transition-colors duration-300 hover:text-gold"
+                    className="navbar-link text-lg uppercase tracking-wider transition-colors duration-300 hover:text-gold"
                   >
                     {accountLink.label}
                   </Link>
@@ -145,7 +135,7 @@ export function Navbar() {
                         logout();
                         setIsOpen(false);
                       }}
-                      className="text-left text-lg uppercase tracking-wider text-white/60 transition-colors duration-300 hover:text-gold"
+                      className="navbar-link text-left text-lg uppercase tracking-wider text-white/60 transition-colors duration-300 hover:text-gold"
                     >
                       Logout
                     </button>
