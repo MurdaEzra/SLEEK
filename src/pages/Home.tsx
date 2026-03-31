@@ -64,7 +64,7 @@ export function Home() {
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/file_00000000b94c71fda2f8c8cac8f59657.png"
+            src="https://res.cloudinary.com/dgfmhyebp/image/upload/v1774938715/file_00000000b0c871fd9292ceb23a596d7b_pcsckt.png"
             alt="Hero"
             className="w-full h-full object-cover object-[center_7%]" />
           

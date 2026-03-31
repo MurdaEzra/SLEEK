@@ -50,12 +50,45 @@
   --sidebar-border: #2A2A2A;
   --sidebar-ring: #C8A84E;
 }
+
+:root[data-theme='light'] {
+  --background: #efe2cf;
+  --foreground: #261b12;
+  --card: #f6ecde;
+  --card-foreground: #261b12;
+  --popover: #f7eee2;
+  --popover-foreground: #261b12;
+  --primary: #8f6533;
+  --primary-foreground: #fff8ef;
+  --secondary: #e6d5be;
+  --secondary-foreground: #261b12;
+  --muted: #e9dbc8;
+  --muted-foreground: #6d5540;
+  --accent: #c8a84e;
+  --accent-foreground: #261b12;
+  --border: #d3bda0;
+  --input: #dbc8af;
+  --ring: #9c7544;
+  --sidebar: #eadbc8;
+  --sidebar-foreground: #261b12;
+  --sidebar-primary: #8f6533;
+  --sidebar-primary-foreground: #fff8ef;
+  --sidebar-accent: #dfccb3;
+  --sidebar-accent-foreground: #261b12;
+  --sidebar-border: #d3bda0;
+  --sidebar-ring: #9c7544;
+}
+
 @layer base {
   * {
     @apply border-border;
   }
   body {
     @apply bg-background text-foreground;
+    transition:
+      background-color 250ms ease,
+      color 250ms ease,
+      border-color 250ms ease;
   }
   html {
     scroll-behavior: smooth;

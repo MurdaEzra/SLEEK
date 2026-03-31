@@ -38,9 +38,9 @@ export function ProductCard({
             <p className="mb-2 text-xs uppercase tracking-[0.35em] text-white/65">{product.category}</p>
             <h3 className="mb-2 text-lg font-medium">{product.name}</h3>
             <div className="flex items-center gap-3">
-              <p className="text-xl font-semibold text-gold">${discountedPrice}</p>
+              <p className="text-xl font-semibold text-gold">Ksh.{discountedPrice}</p>
               {hasDiscount ? (
-                <p className="text-sm text-white/45 line-through">${product.price}</p>
+                <p className="text-sm text-white/45 line-through">Ksh.{product.price}</p>
               ) : null}
             </div>
           </div>
@@ -49,9 +49,9 @@ export function ProductCard({
           <p className="mb-1 text-xs uppercase tracking-[0.35em] text-muted-foreground">{product.category}</p>
           <h3 className="mb-2 text-lg font-medium">{product.name}</h3>
           <div className="flex items-center gap-3">
-            <p className="font-semibold text-gold">${discountedPrice}</p>
+            <p className="font-semibold text-gold">Ksh.{discountedPrice}</p>
             {hasDiscount ? (
-              <p className="text-sm text-muted-foreground line-through">${product.price}</p>
+              <p className="text-sm text-muted-foreground line-through">Ksh.{product.price}</p>
             ) : null}
           </div>
         </div>

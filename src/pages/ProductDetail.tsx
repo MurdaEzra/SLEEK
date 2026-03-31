@@ -103,8 +103,8 @@ export function ProductDetail() {
             <p className="mb-2 text-sm uppercase tracking-[0.35em] text-muted-foreground">{product.category}</p>
             <h1 className="mb-4 font-serif text-4xl md:text-5xl">{product.name}</h1>
             <div className="mb-8 flex items-end gap-4">
-              <p className="text-3xl font-semibold text-gold">${discountedPrice}</p>
-              {hasDiscount ? <p className="text-lg text-white/45 line-through">${product.price}</p> : null}
+              <p className="text-3xl font-semibold text-gold">Ksh.{discountedPrice}</p>
+              {hasDiscount ? <p className="text-lg text-white/45 line-through">Ksh.{product.price}</p> : null}
             </div>
 
             <div className="mb-8 rounded-[1.5rem] border border-gold/15 bg-gold/10 p-5">

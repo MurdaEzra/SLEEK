@@ -80,7 +80,7 @@ export function Checkout() {
                   Processing payment...
                 </span>
               ) : (
-                `Pay $${total.toFixed(2)}`
+                `Pay Ksh.${total.toFixed(2)}`
               )}
             </Button>
           </form>
@@ -98,7 +98,7 @@ export function Checkout() {
                       <p className="mt-1 text-sm text-white/55">Size {item.size} • Qty {item.quantity}</p>
                     </div>
                     <p className="font-semibold text-gold">
-                      ${(getDiscountedPrice(product) * item.quantity).toFixed(2)}
+                      Ksh.{(getDiscountedPrice(product) * item.quantity).toFixed(2)}
                     </p>
                   </div>
                 </div>
@@ -107,7 +107,7 @@ export function Checkout() {
             <div className="mt-8 rounded-[1.5rem] border border-white/10 bg-black/20 p-5">
               <div className="mb-3 flex justify-between text-white/60">
                 <span>Subtotal</span>
-                <span>${total.toFixed(2)}</span>
+                <span>Ksh.{total.toFixed(2)}</span>
               </div>
               <div className="mb-3 flex justify-between text-white/60">
                 <span>Delivery</span>
@@ -115,7 +115,7 @@ export function Checkout() {
               </div>
               <div className="flex justify-between text-lg font-semibold">
                 <span>Total</span>
-                <span className="text-gold">${total.toFixed(2)}</span>
+                <span className="text-gold">Ksh.{total.toFixed(2)}</span>
               </div>
             </div>
           </aside>

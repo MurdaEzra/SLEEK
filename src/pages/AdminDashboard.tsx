@@ -269,9 +269,9 @@ export function AdminDashboard() {
                         <p className="mt-3 text-sm text-white/60">{product.description}</p>
                       </div>
                       <div className="text-left lg:text-right">
-                        <p className="text-lg font-semibold text-gold">${getDiscountedPrice(product)}</p>
+                        <p className="text-lg font-semibold text-gold">Ksh.{getDiscountedPrice(product)}</p>
                         {product.discountPercent ? (
-                          <p className="text-sm text-white/45 line-through">${product.price}</p>
+                          <p className="text-sm text-white/45 line-through">Ksh.{product.price}</p>
                         ) : null}
                       </div>
                     </div>

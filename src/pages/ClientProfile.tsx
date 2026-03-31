@@ -102,7 +102,7 @@ export function ClientProfile() {
                     </div>
                     <div className="text-right">
                       <p className="text-lg font-semibold text-gold">
-                        ${(getDiscountedPrice(product) * item.quantity).toFixed(2)}
+                        Ksh.{(getDiscountedPrice(product) * item.quantity).toFixed(2)}
                       </p>
                     </div>
                   </div>
@@ -110,7 +110,7 @@ export function ClientProfile() {
                 <div className="mt-8 flex flex-col items-start justify-between gap-4 rounded-[1.5rem] border border-gold/20 bg-gold/10 p-6 md:flex-row md:items-center">
                   <div>
                     <p className="text-xs uppercase tracking-[0.35em] text-gold/80">Order total</p>
-                    <h3 className="mt-2 font-serif text-3xl">${total.toFixed(2)}</h3>
+                    <h3 className="mt-2 font-serif text-3xl">Ksh.{total.toFixed(2)}</h3>
                   </div>
                   <Link to="/checkout">
                     <Button size="lg" className="h-12 rounded-2xl bg-gold px-8 text-black hover:bg-gold/90">

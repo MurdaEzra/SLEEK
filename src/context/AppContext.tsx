@@ -2,6 +2,7 @@ import React, { createContext, useContext, useEffect, useMemo, useState } from '
 import { seedProducts, type Product, type ProductCategory } from '../lib/products';
 
 export type UserRole = 'admin' | 'client';
+export type ThemeMode = 'dark' | 'light';
 
 export interface UserProfile {
   id: string;
@@ -53,11 +54,13 @@ interface AppContextValue {
   users: UserProfile[];
   currentUser: UserProfile | null;
   cart: CartItem[];
+  theme: ThemeMode;
   login: (input: LoginInput) => Promise<{ success: boolean; message: string }>;
   registerClient: (
     input: RegisterInput
   ) => Promise<{ success: boolean; message: string }>;
   logout: () => void;
+  toggleTheme: () => void;
   addToCart: (productId: string, size: string) => Promise<{ success: boolean; message: string }>;
   createProduct: (input: ProductInput) => Promise<void>;
   updateProduct: (productId: string, input: ProductInput) => Promise<void>;
@@ -103,6 +106,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   const [users, setUsers] = useState<UserProfile[]>(seededUsers);
   const [currentUserId, setCurrentUserId] = useState<string | null>(null);
   const [cart, setCart] = useState<CartItem[]>([]);
+  const [theme, setTheme] = useState<ThemeMode>('dark');
 
   useEffect(() => {
     const raw = window.localStorage.getItem(STORAGE_KEY);
@@ -114,12 +118,14 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
           users?: UserProfile[];
           currentUserId?: string | null;
           cart?: CartItem[];
+          theme?: ThemeMode;
         };
 
         setProducts(parsed.products?.length ? parsed.products : seedProducts);
         setUsers(parsed.users?.length ? parsed.users : seededUsers);
         setCurrentUserId(parsed.currentUserId ?? null);
         setCart(parsed.cart ?? []);
+        setTheme(parsed.theme ?? 'dark');
       } catch {
         setProducts(seedProducts);
         setUsers(seededUsers);
@@ -141,10 +147,15 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         products,
         users,
         currentUserId,
-        cart
+        cart,
+        theme
       })
     );
-  }, [cart, currentUserId, isReady, products, users]);
+  }, [cart, currentUserId, isReady, products, theme, users]);
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+  }, [theme]);
 
   const currentUser = useMemo(
     () => users.find((user) => user.id === currentUserId) ?? null,
@@ -216,6 +227,10 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
   const logout = () => {
     setCurrentUserId(null);
+  };
+
+  const toggleTheme = () => {
+    setTheme((currentTheme) => (currentTheme === 'dark' ? 'light' : 'dark'));
   };
 
   const addToCart = async (productId: string, size: string) => {
@@ -303,9 +318,11 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         users,
         currentUser,
         cart,
+        theme,
         login,
         registerClient,
         logout,
+        toggleTheme,
         addToCart,
         createProduct,
         updateProduct,
